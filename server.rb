@@ -16,7 +16,9 @@ post '/docs' do
 	# binding.pry
 	if text.match(/[a-zA-Z]+([#]|[:]{2})[a-zA-Z_]+/)
 		ruby_doc_parser = RubyDocParser.new(text)
-		ruby_doc_parser.response
+		response = ruby_doc_parser.response
+		content_type :json
+		{ :response_type => 'in_channel', :text => response, :mrkdwn => true }.to_json
 	else
 		json :text => "Bro, you're doing it wrong. DAT attachment tho\n*Format : * `Class#method`\n*Example : * `String#reverse`"
 	end

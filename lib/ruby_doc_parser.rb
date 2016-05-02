@@ -24,6 +24,6 @@ class RubyDocParser
 			end
 		end
 
-		container.empty? ? "No examples for that method, you fuck :(" : container
+		container.empty? ? "No examples for that method. :(" : container
 	end
 end
