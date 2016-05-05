@@ -23,12 +23,13 @@ post '/docs' do
 
 		response = ruby_doc_parser.response
 		content_type :json
+				p response
 		{
 			:response_type => 'in_channel',
 			:text => "Link : http://ruby-doc.org/core-2.2.0/#{ruby_class.capitalize}.html#method-i-#{ruby_method.downcase}",
 			:attachments => [
 				{
-					:text => "`#{response.gsub('"', "'")}`",
+					:text => "`#{response.gsub('"', "'").reverse.sub("\n","").reverse.gsub("\n", "`\n`")}`",
 					:mrkdwn_in => ["text"]
 				}
 			],
