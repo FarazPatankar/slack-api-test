@@ -4,6 +4,8 @@ require 'httparty'
 require 'sinatra/json'
 require 'json'
 require 'pry'
+require 'open-uri'
+require 'nokogiri'
 
 require_relative("lib/ruby_doc_parser.rb")
 
