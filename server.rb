@@ -37,6 +37,8 @@ post '/docs' do
 			],
 			:mrkdwn => true
 		}.to_json
+	elsif text.match(/[a-zA-Z]+([\/]|[:]{2})[a-zA-Z_]+/)
+
 	else
 		json :text => "Bro, you're doing it wrong. DAT attachment tho\n*Format : * `Class#method`\n*Example : * `String#reverse`"
 	end
